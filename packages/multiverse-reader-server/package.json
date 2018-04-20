@@ -1,0 +1,21 @@
+{
+  "name": "multiverse-reader-server",
+  "version": "0.0.1",
+  "main": "src/handler.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "serverless offline"
+  },
+  "devDependencies": {
+    "@intelight/tslint": "^0.0.9",
+    "@types/node": "^9.6.6",
+    "serverless": "^1.26.1",
+    "serverless-offline": "^3.20.3",
+    "serverless-plugin-typescript": "^1.1.5",
+    "ts-loader": "^4.2.0",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.8.5"
+  }
+}

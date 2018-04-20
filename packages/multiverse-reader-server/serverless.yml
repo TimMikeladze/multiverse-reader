@@ -1,0 +1,68 @@
+service: intelight-products
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    MONGO: mongodb://localhost/products
+
+functions:
+  graphql:
+    handler: src/handler.server
+    events:
+    - http:
+        path: /
+        method: post
+        cors: true
+    environment:
+      JWT_SECRET: j>!kl6YTCuu)[Af(uD?c#zd"~Ic:Y> 
+      LICENSE_PRIVATE_KEY: |
+        -----BEGIN PRIVATE KEY-----
+        MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC9925H8DLIpzZ2
+        nemHS/t+6Uz/998AQMoY1zyD0Q52ZkVgOtPToiPTcaO7w3jCgPfi2oeowTj0dUC4
+        P5+dbUR2zK7XZ8giNcXWJcreJuzVE+dVg7J6V4monybhn4NfpJAiDiVFmVzjm4po
+        1aNAUY1HSOeRlmhURI7BOb6ldYPddY7xVdiws4/u3C3SjpoZ1bDhEez6x7FD8bmv
+        qdL1UW30JaubhdU6dFHCnQskDXUbL3EORs6vg6eL5Qd9F+zKZDGCud2ae8tcCmAB
+        Z1UJ/Y9zQD+OlUmYZnEzUA+er/1mxEu5T80UOzs0dEH2GkYvgzk9Qh+JNGVJqd/k
+        MeXK78q1AgMBAAECggEBAJPd9oyujokbh0xbbLywy0mlRhd0lLO4utcNKwCcCPrm
+        bpgSEnKIogRjT4THCce05b9CRRh5luDKKB+C/rZmqEUk2++1y9W9L4qajkfP2sed
+        H5Oz2IhcfT2w7G3xYSxghwTLJ/39+4z7tIgXy2Q0VpknSYFMp1b4qnoDfb+DMqp9
+        EP+2iLoym3tATo6CV6gYWUtBeasR+NwYpagMRHutf96AaaNxgatGmQMGyVuUgFgX
+        u2CgEvZL2P4T655ctgB71YcTbg2wV/1L79zGphXpXNZDb2PCM7Ja0TvDdZ4M9LAJ
+        QrOuE5FkxBloHDNFgvUiTYXJG3GEUxZzq/0Gze8wKuECgYEA3S0cAGQo4kChP+Y1
+        QbYeQe+axqWvM1huyn5rX8DuSyMk/9WmM67n961KyUxWiDTRp0shqcrr3ZlF9oW6
+        y/6iow7pxImMIEtcMJgxGsCGZushObP56r6zM8ylKptYvy0Rq9NSc5l6qtNJlrv0
+        GatcComVze19zj9M7xM0QAtWcI0CgYEA2+BcbdTboC1OLPbjVBJRuE2aZNKqhUQ2
+        gF01vEv/ooXYwm+6a2iRtHr2q7etob9Wo8G2bUKplmE4ghpikjgeH95z3EIrRcRY
+        0+DLyNwiR5JsJXLHnWVjRROAFhmLRPcMseOv9exs+zLm0rHDLmKDjnif0m4+SuiV
+        /KGLJkNKHMkCgYEAz04/p7I5i8+OFCl/E2dStvSQ+s5DB/pEZfHWTHq2H6ECRfUI
+        AftXmxNHPKQbmzD+rTJDjDURnLPUGru/mQLDh9grjjZqK77W2wlbRTrc/sw2aTJi
+        9f7mUo/m46eVqCLjJE0/Q/DARCskF2913TV7YLkSu2B1gYJdZtx2Je06iOUCgYEA
+        iIPKn16TZeX7Lau0BRTCrD1yaLrrqIZrmFNG87vz4gJcTIx2IA3yuS3HTWJjaZOU
+        xWOWUkwbYwTFwvGC1eoFuh+xq8VhfJWl2RcvL2yN1AYzIyUajrzOX6r10cLWV2FT
+        /naxX20FVQmLirFXz8rWh3SZNlvATV4PEaVy8bTBpRECgYBwCj6twlwn9bg4pdxz
+        SA2x9Zxj7aeXdTJ+CZEabpRfoPHwBdLC0IpaVZleIGMpgOsk/qR/5qzWKmpKVW1U
+        PAL8LDn2Z5i2WEqsY/0S5PtRB9qBSiEi/IgK0A8otUA0sDJtZJ4JRjpwRitWVcDq
+        36LOrPAGeso4B1f6abdGxVAo4w==
+        -----END PRIVATE KEY-----
+      LICENSE_PUBLIC_KEY: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvfduR/AyyKc2dp3ph0v7
+        fulM//ffAEDKGNc8g9EOdmZFYDrT06Ij03Gju8N4woD34tqHqME49HVAuD+fnW1E
+        dsyu12fIIjXF1iXK3ibs1RPnVYOyeleJqJ8m4Z+DX6SQIg4lRZlc45uKaNWjQFGN
+        R0jnkZZoVESOwTm+pXWD3XWO8VXYsLOP7twt0o6aGdWw4RHs+sexQ/G5r6nS9VFt
+        9CWrm4XVOnRRwp0LJA11Gy9xDkbOr4Oni+UHfRfsymQxgrndmnvLXApgAWdVCf2P
+        c0A/jpVJmGZxM1APnq/9ZsRLuU/NFDs7NHRB9hpGL4M5PUIfiTRlSanf5DHlyu/K
+        tQIDAQAB
+        -----END PUBLIC KEY-----
+  playground:
+    handler: src/handler.playground
+    events:
+    - http:
+        path: /
+        method: get
+        cors: true
