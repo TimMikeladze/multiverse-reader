@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "outDir": "lib"
   },
   "exclude": [
     "node_modules"
