@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import * as path from 'path';
 
 const LIBRARY_PATH = path.join(__dirname, '..', '..', '..', 'library');
@@ -13,6 +13,8 @@ import {
 describe('unarchiveFile', () => {
   it('can unarchive a cbr/cbr file', async () => {
     const outputFolderName = await unarchiveFile(TESTA_ONE_PATH, CACHE_PATH);
-    expect(fs.existsSync(path.join(CACHE_PATH, outputFolderName))).toBeTruthy();
+    const outputFolderPath = path.join(CACHE_PATH, outputFolderName);
+    expect(fs.existsSync(outputFolderPath)).toBeTruthy();
+    fs.remove(outputFolderPath);
   });
 });
