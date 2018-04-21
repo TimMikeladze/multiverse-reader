@@ -2,7 +2,7 @@
 
 **Note: This project is under active development**
 
-Web based comic book reader client and server (cbr/cbz). Built with React and GraphQL on top of Parcel and Serverless.
+Web based comic book reader (cbr/cbz) and library server. Built with React and GraphQL on top of Parcel and Serverless.
 
 ## Getting started for local development
 
