@@ -1,0 +1,17 @@
+query ComicBook(
+  $name: String!
+) {
+  comicBook(
+    name: $name
+  ) {
+    name
+    path
+    pages {
+      page
+      name
+      path
+      image
+      totalPages
+    }
+  }
+}

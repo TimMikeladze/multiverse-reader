@@ -1,0 +1,16 @@
+query ComicBooks {
+  comicBooks {
+    name
+    path
+    pages(
+      cursor: 0
+      limit: 1
+    ) {
+      page
+      name
+      path
+      image
+      totalPages
+    }
+  }
+}
