@@ -58,7 +58,7 @@ const resolvers = {
         cache[root.name] = [...pages];
       }
 
-      return pages.slice(cursor || 0, (cursor + limit) || pages.length);
+      return pages.slice(cursor || 0, (cursor + limit) || limit || pages.length);
     },
   },
   Query: {
