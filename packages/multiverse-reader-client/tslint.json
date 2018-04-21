@@ -1,5 +1,8 @@
 {
   "extends": [
     "@intelight/tslint"
-  ]
+  ],
+  "rules": {
+    "no-var-requires": false
+  }
 }

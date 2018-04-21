@@ -6,7 +6,8 @@
   "scripts": {
     "start": "serve ../../.cache & serverless offline;",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "lint": "tslint --project ./tsconfig.json '{src,test}/**/*.{ts,tsx}'"
   },
   "jest": {
     "transform": {

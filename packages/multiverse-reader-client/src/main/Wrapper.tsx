@@ -1,10 +1,23 @@
-import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
+import { createMuiTheme, MuiThemeProvider, StyleRulesCallback, withStyles } from 'material-ui/styles';
 import * as React from 'react';
-import { render } from 'react-dom';
+
+const styles: StyleRulesCallback = (theme) => ({
+  '@global': {
+    body: {
+      fontFamily: theme.typography.fontFamily,
+      margin: 0,
+    },
+    a: {
+      textDecoration: 'none',
+    },
+  },
+});
+
+const customTheme = createMuiTheme();
 
 const Wrapper = ({ children }) =>
-  <MuiThemeProvider>
+  <MuiThemeProvider theme={customTheme}>
     {children}
   </MuiThemeProvider>;
 
-export default Wrapper;
+export default withStyles(styles)(Wrapper);

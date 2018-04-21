@@ -18,7 +18,7 @@ const typeDefs = `
     totalPages: Int!
   }
 
-  type ComicBookFile {
+  type ComicBook {
     name: String!
     path: String!
     pages(
@@ -28,14 +28,17 @@ const typeDefs = `
   }
 
   type Query {
-    comicBookFiles: [ComicBookFile]
+    comicBooks: [ComicBook]
+    comicBook(
+      name: String!
+    ): ComicBook
   }
 `;
 
 const cache = {};
 
 const resolvers = {
-  ComicBookFile: {
+  ComicBook: {
     pages: async (root, { cursor, limit }) => {
       const unarchivedFile = await unarchiveFile(root.path, process.env.CACHE_PATH);
 
@@ -59,7 +62,7 @@ const resolvers = {
     },
   },
   Query: {
-    comicBookFiles: () => {
+    comicBooks: () => {
       const files = getAllFiles(process.env.LIBRARY_PATH, ARCHIVE_TYPES)
         .map((file) => {
           return {
@@ -68,6 +71,22 @@ const resolvers = {
           };
         });
       return files;
+    },
+    comicBook: (root, { name }) => {
+      // TODO improve lookup
+      const file = getAllFiles(process.env.LIBRARY_PATH, ARCHIVE_TYPES)
+        .map((f) => {
+          return {
+            name: path.basename(f).slice(0, -path.extname(f).length),
+            path: f,
+          };
+        })
+        .find((f) => f.name === name);
+
+      return {
+        name: file.name,
+        path: file.path,
+      };
     },
   },
 };
