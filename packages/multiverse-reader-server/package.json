@@ -4,7 +4,7 @@
   "main": "src/handler.ts",
   "license": "MIT",
   "scripts": {
-    "start": "serverless offline",
+    "start": "serve ../../.cache & serverless offline;",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -35,8 +35,10 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
+    "base64-min": "^2.0.0",
     "fs-extra": "^5.0.0",
     "graphql-yoga": "^1.8.5",
-    "node-7z": "^0.4.0"
+    "node-7z": "^0.4.0",
+    "serve": "^6.5.5"
   }
 }
