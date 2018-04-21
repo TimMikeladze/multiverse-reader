@@ -4,18 +4,38 @@
   "main": "src/handler.ts",
   "license": "MIT",
   "scripts": {
-    "start": "serverless offline"
+    "start": "serverless offline",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "devDependencies": {
     "@intelight/tslint": "^0.0.9",
+    "@types/jest": "^22.2.3",
     "@types/node": "^9.6.6",
+    "jest": "^22.4.3",
     "serverless": "^1.26.1",
     "serverless-offline": "^3.20.3",
     "serverless-plugin-typescript": "^1.1.5",
+    "ts-jest": "^22.4.4",
     "ts-loader": "^4.2.0",
     "typescript": "^2.8.3"
   },
   "dependencies": {
-    "graphql-yoga": "^1.8.5"
+    "graphql-yoga": "^1.8.5",
+    "node-7z": "^0.4.0"
   }
 }
