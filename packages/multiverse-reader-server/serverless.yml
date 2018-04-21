@@ -7,10 +7,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs6.10
-  environment:
-    LIBRARY_PATH: /Users/tim/workspace/multiverse-reader/library
-    CACHE_PATH: /Users/tim/workspace/multiverse-reader/.cache
-    FILE_SERVER_PATH: http://localhost:5000
+  environment: ${file(env.yml)}
 
 functions:
   graphql:
